@@ -1,4 +1,4 @@
-﻿using ETradeAPI.Application.Abstraction;
+﻿
 using ETradeAPI.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ETradeAPI.Persistance.Concretes
 {
-    public class ProductService : IProductService
+    public class ProductService 
     {
         public List<Product> GetProducts()
         => new()

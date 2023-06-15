@@ -12,7 +12,7 @@ namespace ETradeAPI.Persistence.Contexts
     {
         public ETradeAPIDbContext(DbContextOptions options) : base(options)
         { }
-        public DbSet<Product> MyProperty { get; set; }
+        public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Customer> Customers { get; set; }
     }
