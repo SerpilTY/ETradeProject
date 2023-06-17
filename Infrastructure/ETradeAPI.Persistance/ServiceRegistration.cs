@@ -17,12 +17,12 @@ namespace ETradeAPI.Persistance
             
 
             service.AddDbContext<ETradeAPIDbContext>(options => options.UseNpgsql(Configuration.ConnectionString),ServiceLifetime.Singleton);
-            service.AddSingleton<ICustomerReadRepository, CustomerReadRepository>();
-            service.AddSingleton<ICustomerWriteRepository, CustomerWriteRepository>();
-            service.AddSingleton<IOrderReadRepository, OrderReadRepository>();
-            service.AddSingleton<IOrderWriteRepository, OrderWriteRepository>();
-            service.AddSingleton<IProductReadRepository, ProductReadRepository>();
-            service.AddSingleton<IProductWriteRepository, ProductWriteRepository>();
+            service.AddScoped<ICustomerReadRepository, CustomerReadRepository>();
+            service.AddScoped<ICustomerWriteRepository, CustomerWriteRepository>();
+            service.AddScoped<IOrderReadRepository, OrderReadRepository>();
+            service.AddScoped<IOrderWriteRepository, OrderWriteRepository>();
+            service.AddScoped<IProductReadRepository, ProductReadRepository>();
+            service.AddScoped<IProductWriteRepository, ProductWriteRepository>();
             
         }
     }

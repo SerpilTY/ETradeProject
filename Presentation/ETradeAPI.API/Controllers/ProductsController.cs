@@ -1,4 +1,5 @@
 ﻿using ETradeAPI.Application.Repositories;
+using ETradeAPI.Domain.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,7 +19,7 @@ namespace ETradeAPI.API.Controllers
         }
 
         [HttpGet]
-        public async void Get( ) {
+        public async Task Get( ) {
             await _productWriteRepository.AddRangeAsync(new()
             {
                 new(){Id=Guid.NewGuid(), Name="Product 1", Price=100, CreatedDate=DateTime.UtcNow, Stock=10},
@@ -28,5 +29,12 @@ namespace ETradeAPI.API.Controllers
            await _productWriteRepository.SaveAsync();
         
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(string id)
+        {
+            Product product= await _productReadRepository.GetByIdAsync(id);
+            return Ok(product);
+        }
+
     }
 }
